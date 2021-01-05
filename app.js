@@ -2,11 +2,13 @@ var http = require("http");
 
 var request = (request, response) => {
     response.writeHead("200", {
-        'Content-Type':'text/plain'
+        'Content-Type':'application/json'
     });
-    response.write("<h1>This is my test node App</h1>");
+
+    var jsonResult = "[{\"Identifier:\":100, \"Name\":\"Vickram\", \"Age\": \"abc\"}]";
+    response.write(jsonResult);
     response.end();
 }
 
-    http.createServer(request).listen(8080)
-console.log("Listening on 8080..")
+http.createServer(request).listen(8080)
+console.log("Listening on 8080..");
